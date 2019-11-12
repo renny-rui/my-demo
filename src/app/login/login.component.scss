@@ -1,0 +1,31 @@
+.body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  .container {
+    .mat-card-title {
+      font-size: 24px;
+      color: #000;
+      font-weight: bold;
+    }
+    .checkbox {
+      font-size: 14px;
+      margin-bottom: 10px;
+      margin-left: 5px;
+    }
+    .input-box {
+      border-radius: 8px #000;
+      .mat-form-field {
+        width: 300px;
+        font-size: 12px;
+        .input {
+          height: 30px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
