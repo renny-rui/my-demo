@@ -5,19 +5,22 @@
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center">请登录</mat-card-title>
             </mat-card-header>
             <mat-card-content fxLayout="row" fxLayoutAlign="start center">
-                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <form [formGroup]="form" (ngSubmit)="submit()">
                     <div class="input-box">
                         <mat-form-field>
+                                <mat-error *ngIf=Username.invalid>
+                                    <ng-container *ngIf="Username.error?.required">username</ng-container>
+                                    <ng-container *ngIf="Username.error?.required">error</ng-container>
                         <input matInput placeholder="Username" formControlName="Username" apperance="outline">
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="input-box">
                         <mat-form-field>
+                                <mat-error>
                             <input matInput placeholder="password" formControlName="password" apperance="outline">
+                                </mat-error>
                         </mat-form-field>
-                    </div>
-                    <div *ngIf="error" class="error">
-                        {{error}}
                     </div>
                     <div class="checkbox">
                         <mat-checkbox color="primary" [(ngModel)]="remember" [checked]="remember">记住密码？</mat-checkbox>
