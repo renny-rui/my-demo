@@ -13,10 +13,16 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ParkingModule } from './parking/parking.module';
+import { FormfieldComponent } from './formfield/formfield.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    FormfieldComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,9 @@ import { ParkingModule } from './parking/parking.module';
     BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
+    MatSelectModule,
+    MatIconModule,
+    MatRadioModule,
     ParkingModule
 
   ],

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ParkingComponent } from './parking/parking.component';
+import { FormfieldComponent } from './formfield/formfield.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   { path: 'parking',
   component: ParkingComponent
+  },
+  { path: 'formfield',
+  component: FormfieldComponent
   },
   { path: '**',
   component: LoginComponent

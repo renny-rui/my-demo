@@ -16,7 +16,7 @@
                     </div>
                     <div class="input-box">
                         <mat-form-field>
-                            <input matInput placeholder="password" formControlName="password" apperance="outline">
+                            <input type="password" matInput placeholder="password" formControlName="password" apperance="outline">
                             <mat-error *ngIf="password?.invalid" >
                                 <ng-container *ngIf="password?.errors"> 密码必填</ng-container>
                             </mat-error>
