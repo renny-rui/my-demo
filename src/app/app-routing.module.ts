@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ParkingComponent } from './parking/parking.component';
 import { FormfieldComponent } from './formfield/formfield.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,12 @@ const routes: Routes = [
   },
   { path: 'formfield',
   component: FormfieldComponent
+  },
+  { path: 'navigation',
+  component: NavigationComponent
+  },
+  { path: 'layout',
+  component: LayoutComponent
   },
   { path: '**',
   component: LoginComponent
