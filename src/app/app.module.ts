@@ -27,6 +27,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatListModule} from '@angular/material/list';
 import {MatStepperModule} from '@angular/material/stepper';
+import { RoleComponent } from './role/role.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     FormfieldComponent,
     NavigationComponent,
     LayoutComponent,
+    RoleComponent,
 
   ],
   imports: [
@@ -60,6 +64,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDatepickerModule,
     MatListModule,
     MatStepperModule,
+    MatTabsModule,
+    MatTooltipModule,
     ParkingModule
 
   ],

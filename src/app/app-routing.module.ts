@@ -7,6 +7,7 @@ import { ParkingComponent } from './parking/parking.component';
 import { FormfieldComponent } from './formfield/formfield.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutComponent } from './layout/layout.component';
+import { RoleComponent } from './role/role.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,9 @@ const routes: Routes = [
   },
   { path: 'layout',
   component: LayoutComponent
+  },
+  { path: 'role',
+  component: RoleComponent
   },
   { path: '**',
   component: LoginComponent
