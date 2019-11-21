@@ -1,0 +1,80 @@
+<button mat-raised-button color="primary">hello world</button>
+<div>一般的颜色
+    <mat-icon>person</mat-icon>
+</div>
+<div>一般的颜色
+    <mat-icon color="accent">thumb_up</mat-icon>
+</div>
+<div>一般的颜色
+    <mat-icon color="accent">info</mat-icon>
+</div>
+<div>一般的颜色
+    <mat-icon color="warn">warning</mat-icon>
+</div>
+<button mat-raised-button color="primary"><mat-icon>thumb_up</mat-icon></button>
+<button mat-icon-button clocr="primary"><mat-icon>thumb_up</mat-icon></button>
+<div>
+    <button mat-fab>
+        <mat-icon>thumb_up</mat-icon>
+    </button>
+    <button mat-fab color="primary">
+        <mat-icon>thumb_up</mat-icon>
+    </button>
+    <button mat-fab disabled>
+        <mat-icon>thumb_up</mat-icon>
+    </button>
+</div>
+<mat-button-toggle-group #formatAlignGroup="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+        <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+        <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+        <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="justify" disabled>
+        <mat-icon>format_align_justify</mat-icon>
+    </mat-button-toggle>
+</mat-button-toggle-group>
+<div>对齐方式为:{{formatAlignGroup.value}}</div>
+<mat-button-toggle-group multiple vertical="true">
+    <mat-button-toggle value="bold" #buttonToggleBold>
+        <mat-icon>format_bold</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="italic" checked="true" #buttonToggleItalic>
+        <mat-icon>format_italic</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="underline" checked="under lined" checked="true" #buttonToggleUnderlined>
+        <mat-icon>format_underlined</mat-icon>
+    </mat-button-toggle>
+</mat-button-toggle-group>
+<div>粗体：{{ buttonToggleBold.checked }}、斜体：{{ buttonToggleItalic.checked }}、底边：{{ buttonToggleUnderlined.checked }}</div>
+<div class="demo-ripple-container" mat-ripple
+[matRippleCentered]="false"
+[matRippleDisabled]="false"
+[matRippleUnbounded]="false"
+[matRippleRadius]="10"
+[matRippleColor]="'pink'"
+></div>
+<mat-sidenav-container>
+    <mat-sidenav #sideNav>左菜单栏</mat-sidenav>
+    <mat-sidenav-content >
+        <button mat-button (click)="sideNav.toggle()">切换左边菜单状态</button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-sidenav opened="true" mode="side" position="end">
+    <div>右菜单</div>
+</mat-sidenav>
+<mat-sidenav #sideNav mode="over" disabledClose>
+    <div>左边菜单</div>
+    <div>
+        <button mat-rised-button color="warn" (click)="toggleSideNav(sideNav)">切换菜单状态</button>
+    </div>
+</mat-sidenav>
+<mat-drawer-container style="height:100px;border: 1px solid black">
+    <mat-drawer mode="side" opened="true">Drawer Side</mat-drawer>
+    <mat-drawer-content>Content</mat-drawer-content>
+  </mat-drawer-container>

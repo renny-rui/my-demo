@@ -1,0 +1,37 @@
+<mat-toolbar class="demo-app-header">
+    <span>Angular Material Demo</span>
+</mat-toolbar>
+<div  class="container">
+<mat-sidenav-container>
+    <mat-sidenav #sideNav>左菜单栏</mat-sidenav>
+    <mat-sidenav-content >
+        <button mat-button (click)="sideNav.toggle()">切换左边菜单状态</button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-sidenav #sideNav mode="over" disabledClose>
+    <div>左边菜单
+        <mat-list>
+            <mat-list-item>问卷调查</mat-list-item>
+            <mat-list-item>部落格</mat-list-item>
+            <mat-list-item>收藏夹</mat-list-item>
+        </mat-list>
+    </div>
+    <div>
+        <button mat-rised-button color="warn" (click)="toggleSideNav(sideNav)">切换菜单状态</button>
+    </div>
+</mat-sidenav>
+<mat-toolbar color="primary" class="demo-app-header">
+    <button mat-icon-button (click)="sideNav.toggle()">
+        <mat-icon>{{sideNav.opened ? 'close':'menu'}}</mat-icon>
+    </button>
+    <span>Angular Material Demo</span>
+<span class="toolbar-right"></span>
+<button mat-icon-button>
+    <mat-icon>message</mat-icon>
+</button>
+<button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+</button>
+</mat-toolbar>
+</div>

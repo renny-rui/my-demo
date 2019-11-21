@@ -8,6 +8,8 @@ import { FormfieldComponent } from './formfield/formfield.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RoleComponent } from './role/role.component';
+import { Layout2Component } from './layout2/layout2.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,12 @@ const routes: Routes = [
   },
   { path: 'role',
   component: RoleComponent
+  },
+  { path: 'layout2',
+  component: Layout2Component
+  },
+  { path: 'toolbar',
+  component: ToolbarComponent
   },
   { path: '**',
   component: LoginComponent
