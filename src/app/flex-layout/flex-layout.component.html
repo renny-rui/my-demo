@@ -1,0 +1,87 @@
+
+    <div>选择你最喜欢的颜色</div>
+    <form [formGroup]="surveyGroup">
+        <span>Red</span>
+        <mat-slider input formControlName="favoriteColorRed" min="0" max="255" step="1"></mat-slider>
+
+    <div>
+        <span>Green</span>
+        <mat-slider input formControlName="favoriteColorGreen" min="0" max="255" step="1"></mat-slider>
+    </div>
+    <div>
+        <span>Bule</span>
+        <mat-slider input formControlName="favoriteColorBlue" min="0" max="255" step="1"></mat-slider>
+    </div>
+    </form>
+    <div>RGB : ({{ selectedColorRed }},{{ selectedColorGreen }}, {{ selectedColorBlue }})</div>
+    <div style="width : 50px; height:50px; border:1px solid #000" [ngStyle]="{background:selectedColorStyle}"></div>
+<mat-grid-list cols="3" rowHeight="100px" gutterSize="20px">
+    <mat-grid-tile style="background:red" colspan="2">Title 1</mat-grid-tile>
+    <mat-grid-tile style="background:green" rowspan="7">
+    <mat-grid-tile-header>
+    <h3 mat-line>功能清单</h3>
+    <span mat-line>选择你想要的</span>
+    <mat-icon>thumb_up</mat-icon>
+    </mat-grid-tile-header>
+    <div class="blog-sidebard-content">
+        <h4>发文进度</h4>
+        <mat-progress-bar  value="60" [value]="progress"></mat-progress-bar>
+        <button mat-raised-button (click)="progress = progress - 10">-10</button>
+        <button mat-raised-button (click)="progress = progress + 10">+10</button>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" style="background:blue" >顶置文章1</mat-grid-tile>
+    <mat-grid-tile rowspan="2" style="background:blue" >顶置文章2</mat-grid-tile>
+<!--    <mat-grid-tile *ngFor="let post of posts$ | async" rowspan="6" style="background : blue">-->
+<!--    <mat-card>-->
+<!--        {{post.title}}-->
+<!--    </mat-card>-->
+<!--  </mat-grid-tile>-->
+    <mat-grid-tile style="background:yellow" colspan="2">Title 4</mat-grid-tile>
+</mat-grid-list>
+<h4>文章标题</h4>
+<mat-chip-list>
+    <mat-chip *ngFor="let tag of tags" (remove)="removeTag(tag)">
+        {{tag}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+    <mat-chip selected="true">JavaScript</mat-chip>
+    <mat-chip color="accent" selected="true">Material Desgin</mat-chip>
+    <mat-chip color="warn" selected="true">Angular Material</mat-chip>
+</mat-chip-list>
+<mat-expansion-panel hideToggle="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <mat-icon>inbox</mat-icon>
+            收件夹
+        </mat-panel-title>
+        <mat-panel-description>3封未读</mat-panel-description>
+    </mat-expansion-panel-header>
+</mat-expansion-panel>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <mat-icon>person</mat-icon>
+            2人在线上
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-action-row>
+        <button mat-button color="primary">管理我的联系人</button>
+    </mat-action-row>
+</mat-expansion-panel>
+<mat-accordion multi="false">
+    <mat-expansion-panel>
+        Panel1
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        Panel2
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-tab-group>
+    <mat-tab label="邮件列表">
+        邮件列表清单
+    </mat-tab>
+    <mat-tab label="系统设定">
+        系统设定表单
+          </mat-tab>
+</mat-tab-group>

@@ -10,6 +10,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { RoleComponent } from './role/role.component';
 import { Layout2Component } from './layout2/layout2.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { FlexLayoutComponent } from './flex-layout/flex-layout.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,9 @@ const routes: Routes = [
   },
   { path: 'toolbar',
   component: ToolbarComponent
+  },
+  { path: 'flex-layout',
+  component: FlexLayoutComponent
   },
   { path: '**',
   component: LoginComponent

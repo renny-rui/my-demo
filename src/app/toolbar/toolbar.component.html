@@ -1,3 +1,4 @@
+<div class=body fxLayout="row" fxLayoutAlign="start none">
 <mat-toolbar class="demo-app-header">
     <span>Angular Material Demo</span>
 </mat-toolbar>
@@ -11,15 +12,17 @@
 </mat-sidenav-container>
 <mat-sidenav #sideNav mode="over" disabledClose>
     <div>左边菜单
-        <mat-list>
-            <mat-list-item>问卷调查</mat-list-item>
+        <mat-nav-list>
+            <h1>示范用页面</h1>
+            <a [routerLink]="['/','dashboard','survey']" mat-list-item>问卷调查</a>
             <mat-list-item>部落格</mat-list-item>
             <mat-list-item>收藏夹</mat-list-item>
-        </mat-list>
+            <mat-divider></mat-divider>
+            <h1>其他页面</h1>
+            <a [routerLink]="['/']" mat-list-item>首页</a>
+        </mat-nav-list>
     </div>
-    <div>
         <button mat-rised-button color="warn" (click)="toggleSideNav(sideNav)">切换菜单状态</button>
-    </div>
 </mat-sidenav>
 <mat-toolbar color="primary" class="demo-app-header">
     <button mat-icon-button (click)="sideNav.toggle()">
@@ -27,7 +30,7 @@
     </button>
     <span>Angular Material Demo</span>
 <span class="toolbar-right"></span>
-<button mat-icon-button>
+<button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger">
     <mat-icon>message</mat-icon>
 </button>
 <button mat-icon-button>
@@ -35,3 +38,127 @@
 </button>
 </mat-toolbar>
 </div>
+<div class="left" fxLayout="row" fxLayoutAlign="start none">
+    <mat-nav-list>
+        <h3 matSubheader>
+            <mat-icon>chat-bubble</mat-icon>
+            新讯息
+        </h3>
+        <mat-list-item *ngIf="optNew.selected">这是新信息</mat-list-item>
+        <mat-list-item *ngIf="optAds.selected">这是广告信息</mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>
+            <mat-icon>settings</mat-icon>
+            信息设定
+        </h3>
+        <mat-selection-list>
+            <mat-list-option [value]="1"  #optNew>有新信息通知我</mat-list-option>
+            <mat-list-option [value]="2"  #optAds>显示广告信息</mat-list-option>
+        </mat-selection-list>
+    </mat-nav-list>
+    <mat-menu #messageMenu="matMenu">
+        <button mat-menu-item>最新信息</button>
+        <button mat-menu-item>信息设定</button>
+    </mat-menu>
+    <button mat-raised-button [matMenuTriggerFor]="positionMenu">状态选单demo</button>
+    <mat-menu #positionMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="subMenu1">讯息1</button>
+        <button mat-menu-item [matMenuTriggerFor]="subMenu2">讯息2</button>
+        <button mat-menu-item>讯息3</button>
+    </mat-menu>
+    <mat-menu #subMenu1="matMenu">
+        <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            讯息1-1
+        </button>
+        <button mat-menu-item>
+                <mat-icon>favorite</mat-icon>
+                讯息1-2
+            </button>
+            <button mat-menu-item>
+                    <mat-icon>thumb_up</mat-icon>
+                    讯息1-3
+                </button>
+    </mat-menu>
+    <mat-menu #subMenu2="matMenu">
+            <button mat-menu-item>
+                    <mat-icon>delete</mat-icon>
+                    讯息2-1
+                </button>
+                <button mat-menu-item>
+                        <mat-icon>settings</mat-icon>
+                        讯息2-2
+                    </button>
+    </mat-menu>
+    <div>
+    <mat-vertical-stepper class="title">
+        <mat-step >
+            <ng-template matStepLabel>
+                <u>个人资讯</u>
+            </ng-template>
+            <h4>提供个人资讯</h4>
+        </mat-step>
+        <mat-step >
+            <ng-template matStepLabel>
+                <em>详细问题</em>
+            </ng-template>
+            <h4>主要问题内容</h4>
+        </mat-step>
+        <mat-step label="其他">
+            <h4>其他问题</h4>
+        </mat-step>
+    </mat-vertical-stepper>
+</div>
+</div>
+<div class="title" fxLayout="column" fxLayoutAlign="start none">
+    <mat-form-field>
+        <input type="text" name="nickname" matInput placeholder="昵称">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <textarea name="intro_self" matInput placeholder="自我介绍"></textarea>
+    </mat-form-field>
+</div>
+<!--<div class="birthday" fxLayout="row" fxLayoutAlign="start none">
+    <mat-form-field>
+        <input type="text" name="birthday" matInput [matDatepickerFilter]="familyDayFilter" placeholder="生日" [matDatepicker]="birthdayPicker" formControlName="birthday"/>
+        <mat-datepicker-toggle [for]="birthdayPicker" matSyffix></mat-datepicker-toggle>
+        <mat-datepicker #birthdayPicker [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+   <mat-form-field>
+       <mat-select formControlName="interest" placeholder="你的休闲爱好">
+           <mat-option *ngFor="let item of interestList; let index = index" [value]="item.id" [disabled]="index ===1">{{item.name}}</mat-option>
+       </mat-select>
+   </mat-form-field>
+</div>
+-->
+
+
+   <div class="head" fxLayout="column" fxLayoutAlign="start none" >
+      <mat-form-field  [hideRequiredMarker]="true" hintLabel="最多输入5个字">
+          <input name="name" matInput label="姓名" maxlength="5" required>
+          <mat-placeholder>
+           <mat-icon>person</mat-icon>请输入您的姓名
+          </mat-placeholder>
+          <mat-error>姓名栏位有错误</mat-error>
+      </mat-form-field> 
+      <mat-form-field color="accent">
+        <input type="text" name="nickname" matInput placeholder="匿名"/>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="请问您的平均日常消费?">
+        <mat-icon matPrefix>attach_money</mat-icon>
+        <span matSuffix>人民币</span>
+    </mat-form-field>
+    <div>除了生活费外,你最常花费在哪些项目上?</div>
+    <mat-checkbox formControlName="payForAll" [indeterminate]="indeterminateSelectedPayFor" (change)="checkAllChange($event)">全部</mat-checkbox>
+    <mat-checkbox formControlName="payForBook" (change)="payForChange()">书籍</mat-checkbox>
+    <mat-checkbox formControlName="payForMusic" (change)="payForChange()">音乐</mat-checkbox>
+    <mat-checkbox formControlName="payForMovie" (change)="payForChange()">电影</mat-checkbox>
+   
+    <mat-radio-button [value]="1" color="primary">超讨厌</mat-radio-button>
+    <mat-radio-button [value]="2" color="accent">讨厌</mat-radio-button>
+    <mat-radio-button [value]="3" color="warn">普通</mat-radio-button>
+ </div>
+

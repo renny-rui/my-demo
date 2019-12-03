@@ -34,6 +34,13 @@ import { Layout2Component } from './layout2/layout2.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRippleModule} from '@angular/material/core';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { FlexLayoutComponent } from './flex-layout/flex-layout.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { BlogComponent } from './blog/blog.component';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +50,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     LayoutComponent,
     Layout2Component,
     RoleComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    BlogComponent,
+    FlexLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +83,11 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserAnimationsModule,
     MatButtonToggleModule,
     MatRippleModule,
+    MatAutocompleteModule,
+    MatSlideToggleModule,
+    MatGridListModule,
+    MatProgressBarModule,
+    MatChipsModule,
     ParkingModule
   ],
   exports: [],
